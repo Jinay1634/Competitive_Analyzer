@@ -1,0 +1,22 @@
+services:
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    env_file: .env                    # your API keys
+    environment:
+      CORS_ORIGINS: "http://localhost,http://localhost:80"
+    ports:
+      - "8000:8000"                   # optional: expose for direct API access
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"                       # app available at http://localhost
+    depends_on:
+      - backend
+    restart: unless-stopped
