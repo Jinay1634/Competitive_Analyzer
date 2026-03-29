@@ -20,6 +20,7 @@ frontend/dist/
 backend/requirements.txt
 
 # Claude Code files
+5-setup-guide.md
 CLAUDE.md
 **/CLAUDE.md
 ARCHITECTURE.md
